@@ -1,0 +1,74 @@
+﻿@model List<ASM_SIMS.Models.ClassRoomViewModel>
+@using ASM_SIMS.DB
+@{
+    ViewData["Title"] = "Class Rooms";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    bool statusSave = TempData["save"] != null && Convert.ToBoolean(TempData["save"]);
+    var courses = ViewBag.Courses as List<Courses>;
+    var teachers = ViewBag.Teachers as List<Teacher>;
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <h2>Danh sách lớp học</h2>
+        <a class="btn btn-primary" asp-action="Create">Thêm lớp học</a>
+
+        @if (TempData["save"] != null)
+        {
+            if (statusSave)
+            {
+                <div class="text-success my-2">Thao tác thành công</div>
+            }
+            else
+            {
+                <div class="text-danger my-2">Thao tác thất bại</div>
+            }
+        }
+
+        @if (!Model.Any())
+        {
+            <p class="text-info my-2">Chưa có lớp học nào.</p>
+        }
+
+        <table class="table my-2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên lớp</th>
+                    <th>Khóa học</th>
+                    <th>Giảng viên</th>
+                    <th>Ngày bắt đầu</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Lịch học</th> 
+                    <th>Địa điểm</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var course = courses?.FirstOrDefault(c => c.Id == item.CourseId);
+                    var teacher = teachers?.FirstOrDefault(t => t.Id == item.TeacherId);
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.ClassName</td>
+                        <td>@(course?.NameCourse ?? "N/A")</td>
+                        <td>@(teacher?.FullName ?? "N/A")</td>
+                        <td>@item.StartDate</td>
+                        <td>@item.EndDate</td>
+                        <td>@item.Schedule</td> 
+                        <td>@item.Location</td>
+                        <td>@item.Status</td>
+                        <td>
+                            <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger">Xóa</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

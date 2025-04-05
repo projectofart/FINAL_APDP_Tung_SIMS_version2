@@ -1,0 +1,82 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="SIMS">
+	<meta name="author" content="Tung">
+	<meta name="keywords" content="SIMS, BTEC, SE06301">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="@Url.Content("~/SIMS/img/icons/login-icon.png")" type="image/png" />
+
+	<title>Sign In | SIMS</title>
+
+	<!-- CSS -->
+	<link href="@Url.Content("~/SIMS/css/app.css")" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+	<!-- Custom Style -->
+	<style>
+		.img-box {
+			width: 100%;
+			max-width: 600px;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			background: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+
+			.img-box img.main-image {
+				width: 100%;
+				height: auto;
+				border-radius: 8px;
+			}
+
+			.img-box img.logo {
+				width: 160px;
+				height: auto;
+				margin-bottom: 10px;
+			}
+	</style>
+</head>
+
+<body>
+	<main class="d-flex flex-column w-100 vh-100 justify-content-center align-items-center text-center">
+		<!-- Tiêu đề đầu trang -->
+		<h1 class="display-4 fw-bold text-center mb-5">
+			Student Information Management System
+		</h1>
+
+		<!-- Phần giao diện chính -->
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<!-- Cột ảnh -->
+				<div class="col-md-5 d-flex justify-content-center">
+					<div class="img-box">
+						<img class="logo" src="@Url.Content("~/SIMS/img/icons/btec-logo.png")" alt="BTEC Logo">
+						<img class="main-image" src="@Url.Content("~/SIMS/img/photos/background.jpg")" alt="Decor image">
+					</div>
+				</div>
+
+				<!-- Cột login -->
+				<div class="col-md-6 d-flex justify-content-center">
+					<div class="w-100" style="max-width: 500px;">
+						@RenderBody()
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</main>
+
+	<script src="@Url.Content("~/SIMS/js/app.js")"></script>
+</body>
+
+</html>

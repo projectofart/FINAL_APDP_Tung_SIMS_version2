@@ -1,0 +1,60 @@
+﻿@model ASM_SIMS.Models.TeacherViewModel
+@using ASM_SIMS.DB
+
+@{
+    ViewData["Title"] = "Teacher Profile";
+    Layout = "~/Views/TeacherProfile/_MainLayout.cshtml";
+    var course = ViewBag.Course as Courses;
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2 class="text-center mb-4">Teacher Profile</h2>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.FullName</h4>
+
+                <dl class="row">
+                    <dt class="col-sm-4">Email</dt>
+                    <dd class="col-sm-8">@Model.Email</dd>
+
+                    <dt class="col-sm-4">Phone</dt>
+                    <dd class="col-sm-8">@Model.Phone</dd>
+
+                    <dt class="col-sm-4">Address</dt>
+                    <dd class="col-sm-8">@Model.Address</dd>
+
+                    <dt class="col-sm-4">Course</dt>
+                    <dd class="col-sm-8">@course?.NameCourse</dd>
+
+                    <dt class="col-sm-4">Status</dt>
+                    <dd class="col-sm-8">@Model.Status</dd>
+
+                    <dt class="col-sm-4">Created At</dt>
+                    <dd class="col-sm-8">@Model.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+    <h4>Your Classes</h4>
+    @if (ViewBag.ClassRooms != null && ((List<ClassRoom>)ViewBag.ClassRooms).Any())
+    {
+        <ul class="list-group">
+            @foreach (var cls in (List<ClassRoom>)ViewBag.ClassRooms)
+            {
+                <li class="list-group-item">
+                    <strong>@cls.ClassName</strong> — @cls.Schedule
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p><i>You are not assigned to any class yet.</i></p>
+    }
+</div>
+
+    </div>
+</div>

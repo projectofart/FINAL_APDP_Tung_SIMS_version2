@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var fullName = ViewBag.FullName ?? "Sinh viên";
+}
+
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-7">
+            <h2 class="mb-4 fw-bold">Welcome back!</h2>
+
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">
+                    <strong>29/03/25 10:03</strong> - <span class="text-danger">[BTEC EXAM]</span> Announcement of Progress Test 1 scores for English subjects Spring 2025 - Part 2
+                </li>
+                <li class="list-group-item">
+                    <strong>26/03/25 10:39</strong> - <span class="text-danger">[BTEC EXAM]</span> Announcement of Progress Test 2 English exam scores - Summit 1 Spring 2025 - Part 1
+                </li>
+                <li class="list-group-item">
+                    <strong>25/03/25 12:15</strong> - Notice: Registration for changing majors/specializations, changing facilities, reserving, and exempting credits - Summer semester 2025
+                </li>
+                <li class="list-group-item">
+                    <strong>21/03/25 10:13</strong> - <span class="text-danger">[BTEC EXAM]</span> List of students taking Progress Test 1 for English subjects Spring 2025 - Part 2
+                </li>
+            </ul>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for news..." />
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-5 text-center">
+            <img src="~/SIMS/img/photos/Screenshot 2025-04-04 175229.png" class="img-fluid" alt="Student dashboard illustration" />
+        </div>
+    </div>
+</div>

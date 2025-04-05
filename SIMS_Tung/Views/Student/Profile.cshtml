@@ -1,0 +1,49 @@
+﻿@model ASM_SIMS.Models.StudentViewModel
+@using ASM_SIMS.DB
+
+@{
+    ViewData["Title"] = "Student Profile";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    var classRoom = ViewBag.ClassRoom as ClassRoom;
+    var course = ViewBag.Course as Courses;
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2 class="text-center mb-4">Student Profile</h2>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">@Model.FullName</h4>
+
+                <dl class="row">
+                    <dt class="col-sm-4">Email</dt>
+                    <dd class="col-sm-8">@Model.Email</dd>
+
+                    <dt class="col-sm-4">Phone</dt>
+                    <dd class="col-sm-8">@Model.Phone</dd>
+
+                    <dt class="col-sm-4">Address</dt>
+                    <dd class="col-sm-8">@Model.Address</dd>
+
+                    <dt class="col-sm-4">Class Room</dt>
+                    <dd class="col-sm-8">@classRoom?.ClassName ?? "Not assigned"</dd>
+
+                    <dt class="col-sm-4">Course</dt>
+                    <dd class="col-sm-8">@course?.NameCourse ?? "Not assigned"</dd>
+
+                    <dt class="col-sm-4">Status</dt>
+                    <dd class="col-sm-8">@Model.Status</dd>
+
+                    <dt class="col-sm-4">Created At</dt>
+                    <dd class="col-sm-8">@Model.CreatedAt?.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h4>Your Grades</h4>
+            <p><i>(This is a placeholder — implement grade display later if needed)</i></p>
+        </div>
+    </div>
+</div>
