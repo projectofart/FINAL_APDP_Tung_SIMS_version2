@@ -20,18 +20,20 @@
 
 🛠️ Technologies ASP.NET Core MVC
 
-Entity Framework Core (Code First)
+  - Entity Framework Core (Code First)
+  - SQL Server
+  - Bootstrap 5
+  - xUnit & Moq for Unit Testing
 
-SQL Server
-
-Bootstrap 5
-
-xUnit & Moq for Unit Testing
-
-📂 Structure ASM_SIMS/ │ ├── Controllers/ ├── Models/ ├── Views/ ├── wwwroot/ ├── DB/ (DbContext and EF Configurations) ├── xUnitTest/ (Unit test project)
-
+📂 Structure ASM_SIMS/ 
+  ├── Controllers/ 
+  ├── Models/ 
+  ├── Views/ 
+  ├── wwwroot/ 
+  ├── DB/ (DbContext and EF Configurations) 
+  ├── xUnitTest/ (Unit test project)
+  
 📌 How to Run Clone the repo
-
-Update the appsettings.json with your SQL Server connection string
-Run the app using Visual Studio or dotnet run
-Access: https://localhost:{port}
+  -  Update the appsettings.json with your SQL Server connection string
+  -  Run the app using Visual Studio or dotnet run
+  -  Access: https://localhost:{port}
